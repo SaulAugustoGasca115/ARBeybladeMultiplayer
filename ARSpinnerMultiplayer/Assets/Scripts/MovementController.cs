@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
     Vector3 velocityVector = Vector3.zero;
     Rigidbody rb;
     public float maxVelocityChange = 4.0f;
+    public float TiltAmount = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class MovementController : MonoBehaviour
         //Apply Movement
         Move(movementVelocityVector);
 
+        transform.rotation = Quaternion.Euler(joystick.Vertical * Speed * TiltAmount, 0, -joystick.Horizontal * Speed * TiltAmount);
 
     }
 
@@ -58,6 +60,9 @@ public class MovementController : MonoBehaviour
 
             rb.AddForce(velocityChange,ForceMode.Acceleration);
         }
+
+        
+
     }
 
 }

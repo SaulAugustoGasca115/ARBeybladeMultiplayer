@@ -262,14 +262,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2523371895095917476}
-  m_LocalRotation: {x: 0, y: 0.10687147, z: 0, w: 0.9942729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 7954243406276922915}
   m_Father: {fileID: 2523371896380985839}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 12.27, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2523371896380985836
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 2523371896380985838}
   - component: {fileID: 2523371896380985824}
   - component: {fileID: 1431791352}
+  - component: {fileID: 5491908708190453284}
   m_Layer: 0
   m_Name: Player1_Attacker
   m_TagString: Player
@@ -364,6 +365,22 @@ MonoBehaviour:
   joystick: {fileID: 7566132701908208796}
   Speed: 5
   maxVelocityChange: 5
+  TiltAmount: 5
+--- !u!114 &5491908708190453284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523371896380985836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd12f0516dc7804798769b9d1dc71a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpinSpeed: 3600
+  bIsSpin: 0
+  playerGraphics: {fileID: 2523371895095917476}
 --- !u!1 &2523371896480695252
 GameObject:
   m_ObjectHideFlags: 0
