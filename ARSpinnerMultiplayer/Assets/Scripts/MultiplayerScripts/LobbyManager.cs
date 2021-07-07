@@ -3,24 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
 
     [Header("Login UI")]
     public InputField playerNameInputField;
+    public GameObject uiLoginGameObject;
+
+    [Header("Lobby UI")]
+    public GameObject uiLobbyGameObject;
+    public GameObject ui3DGameObject;
+
+    [Header("Connection Status UI")]
+    public GameObject uiConnectionStatusGameObject;
+    public Text connectionStatusText;
+    public bool showConnectionStatus = false;
+
 
     #region UNITY_METHODS
     // Start is called before the first frame update
     void Start()
     {
-        
+        uiLobbyGameObject.SetActive(false);
+        ui3DGameObject.SetActive(false);
+        uiConnectionStatusGameObject.SetActive(false);
+
+        uiLoginGameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(showConnectionStatus)
+        {
+            connectionStatusText.text = "Connection Status: " + PhotonNetwork.NetworkClientState;
+        }
+
+       
     }
     #endregion
 
@@ -29,11 +50,24 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnEnterGameButtonClicked()
     {
+       
+
+       
+
         string playerName = playerNameInputField.text;
 
-        if(!string.IsNullOrEmpty(playerName))
+        if(!string.IsNullOrEmpty(playerName) && playerName.Length >= 6)
         {
-            if(!PhotonNetwork.IsConnected)
+            uiLobbyGameObject.SetActive(false);
+            ui3DGameObject.SetActive(false);
+            uiLoginGameObject.SetActive(false);
+
+
+            uiConnectionStatusGameObject.SetActive(true);
+
+            showConnectionStatus = true;
+
+            if (!PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.LocalPlayer.NickName = playerName;
 
@@ -45,6 +79,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             Debug.Log("<color=red> Player Name is Invalid </color>");
         }
     }
+
+    public void OnQuickMatchButtonClicked()
+    {
+        //SceneManager.LoadScene("Scene_Loading");
+        SceneLoader.Instance.LoadScene("Scene_PlayerSelection");
+    }
+
     #endregion
 
 
@@ -60,6 +101,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("<color=green> " + PhotonNetwork.LocalPlayer.NickName + " is connected to Photon Server </color>");
+
+       
+        uiLoginGameObject.SetActive(false);
+        uiConnectionStatusGameObject.SetActive(false);
+
+        uiLobbyGameObject.SetActive(true);
+        ui3DGameObject.SetActive(true);
     }
 
     #endregion
