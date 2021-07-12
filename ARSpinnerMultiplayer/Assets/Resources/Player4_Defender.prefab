@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 2209199079156163815}
   - component: {fileID: 6115749899279657298}
   - component: {fileID: -1658961795848166958}
+  - component: {fileID: 2927418226550308038}
   m_Layer: 0
   m_Name: Player4_Defender
   m_TagString: Player
@@ -535,6 +536,21 @@ MonoBehaviour:
   syncronizeAngularVelocity: 1
   isTeleportEnable: 1
   telepoortIfDistanceIsGreaterThan: 1
+--- !u!114 &2927418226550308038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663518797756989780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0ad5466a90f2e4d9c08155d2e4a313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinnerScript: {fileID: 4235547874378280376}
+  spinSpeedBarImage: {fileID: 4663518798249398227}
+  spinSpeedRatioText: {fileID: 6403045122420741532}
 --- !u!1 &4663518798063194202
 GameObject:
   m_ObjectHideFlags: 0
