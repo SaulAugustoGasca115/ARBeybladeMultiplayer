@@ -26,7 +26,7 @@ public class Spinner : MonoBehaviour
             //Debug.Log("TIME TO SPIN: " + timeToSpin);
         }
 
-        if (timeToSpin >= 1.4f)
+        if (timeToSpin >= 1.0f)
         {
             bIsSpin = true;
         }
