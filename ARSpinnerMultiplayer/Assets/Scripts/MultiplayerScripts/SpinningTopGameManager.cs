@@ -15,7 +15,7 @@ public class SpinningTopGameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         uiInformPanelGameobject.SetActive(true);
-        uiInformText.text = "Search For Games to Battle!";
+        //uiInformText.text = "Search For Games to Battle!";
     }
 
 
